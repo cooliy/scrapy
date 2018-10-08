@@ -15,3 +15,6 @@ class TestScrapyPipeline(object):
         f.close()
         # return item
 
+
+class ImagesPipeline(object):
+    pass

@@ -67,6 +67,7 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    'test_scrapy.pipelines.TestScrapyPipeline': 300,
+   'test_scrapy.pipelines.ImagesPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
