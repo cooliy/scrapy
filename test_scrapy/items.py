@@ -15,7 +15,7 @@ class ChoutiItem(scrapy.Item):
 
 
 class XiaohuarItem(scrapy.Item):
-    img_name = scrapy.Field()
+    imgs = scrapy.Field()
     img_url = scrapy.Field()
     # desc = scrapy.Field()
 
