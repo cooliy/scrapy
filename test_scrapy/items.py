@@ -13,3 +13,7 @@ class ChoutiItem(scrapy.Item):
     href = scrapy.Field()
     # desc = scrapy.Field()
 
+class XiaohuarItem(scrapy.Item):
+    img_name = scrapy.Field()
+    img_url = scrapy.Field()
+    # desc = scrapy.Field()
