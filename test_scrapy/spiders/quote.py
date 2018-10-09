@@ -17,3 +17,4 @@ class QuoteSpider(scrapy.Spider):
             yield item
         next = response.css('.pager .netx a::attr(href)').extract_first()
         url = response.urljoin(next)
+        yield scrapy.Request(url=url, callback=self.parse)

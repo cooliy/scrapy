@@ -69,7 +69,9 @@ ITEM_PIPELINES = {
    # 'test_scrapy.pipelines.TestScrapyPipeline': 300
    'test_scrapy.pipelines.MyImagesPipeline': 1
 }
+
 IMAGES_STORE = 'E:\\scrapy\\Xiaohuar_imgs'
+# 避免下载90天内的图片
 IMAGES_EXPIRES = 90
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
@@ -91,4 +93,4 @@ IMAGES_EXPIRES = 90
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
-DEPTH_LIMIT=1
+DEPTH_LIMIT=2

@@ -9,6 +9,7 @@ import scrapy
 
 
 class ChoutiItem(scrapy.Item):
+
     title = scrapy.Field()
     href = scrapy.Field()
 

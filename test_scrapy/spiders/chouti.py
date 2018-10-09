@@ -34,15 +34,9 @@ class ChoutiSpider(scrapy.Spider):
         hxs2 = Selector(response=response).xpath(
             '//div[@id="dig_lcpage"]//a/@href').extract()
         for url in hxs2:
-            # md5_url = self.md5(url)
-            # if md5_url in self.visited_urls:
-            #     pass# print('已经存在', url)
-            # else:
-            #     print(url)
-            #     self.visited_urls.add(md5_url)
+            # 调用urljoin方法构造成一个绝对的url
             url = response.urljoin(url)
-                # print(url)
-                # 将要新访问的url添加到调度器
+            # # 将要访问的新url添加到调度器callback回调函数
             yield Request(url=url, callback=self.parse)
 
     # def md5(self, url):

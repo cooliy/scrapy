@@ -5,7 +5,7 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import scrapy
-from scrapy import Request
+# from scrapy import Request
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 
@@ -18,14 +18,12 @@ class TestScrapyPipeline(object):
         f = open('news.csv', 'a', newline='')
         f.write(tpl)
         f.close()
-        # return item
 
 
 class MyImagesPipeline(ImagesPipeline):
 
     def get_media_requests(self, item, info):
         image_url = item['img_url']
-        # image_name = item['img_name']
         if image_url.split("/")[0] not in ("https:", "http:"):
             image_url = "http://www.xiaohuar.com" + image_url
             yield scrapy.Request(image_url, meta={'img_name': item['img_name']})
