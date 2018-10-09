@@ -13,11 +13,11 @@ class ChoutiItem(scrapy.Item):
     href = scrapy.Field()
 
 
-
 class XiaohuarItem(scrapy.Item):
-    imgs = scrapy.Field()
+    title = scrapy.Field()
+    img_name = scrapy.Field()
     img_url = scrapy.Field()
-    # imgs = scrapy.Field()
+
 
 
 
