@@ -17,8 +17,12 @@ class XiaohuarItem(scrapy.Item):
     title = scrapy.Field()
     img_name = scrapy.Field()
     img_url = scrapy.Field()
+    image_paths = scrapy.Field()
 
-
+class QuoteItem(scrapy.Item):
+    text = scrapy.Field()
+    author = scrapy.Field()
+    tags = scrapy.Field()
 
 
 

@@ -12,7 +12,7 @@ class ChoutiSpider(scrapy.Spider):
     allowed_domains = ['chouti.com']
     start_urls = ['http://dig.chouti.com/']
 
-    visited_urls = set()
+    # visited_urls = set()
 
     def parse(self, response):
         # print(response, type(response))
@@ -34,19 +34,19 @@ class ChoutiSpider(scrapy.Spider):
         hxs2 = Selector(response=response).xpath(
             '//div[@id="dig_lcpage"]//a/@href').extract()
         for url in hxs2:
-            md5_url = self.md5(url)
-            if md5_url in self.visited_urls:
-                pass# print('已经存在', url)
-            else:
-                print(url)
-                self.visited_urls.add(md5_url)
-                url = "http://dig.chouti.com%s" %url
+            # md5_url = self.md5(url)
+            # if md5_url in self.visited_urls:
+            #     pass# print('已经存在', url)
+            # else:
+            #     print(url)
+            #     self.visited_urls.add(md5_url)
+            url = response.urljoin(url)
                 # print(url)
                 # 将要新访问的url添加到调度器
-                yield Request(url=url, callback=self.parse)
+            yield Request(url=url, callback=self.parse)
 
-    def md5(self, url):
-        import hashlib
-        obj = hashlib.md5()
-        obj.update(bytes(url, encoding='utf-8'))
-        return obj.hexdigest()
+    # def md5(self, url):
+    #     import hashlib
+    #     obj = hashlib.md5()
+    #     obj.update(bytes(url, encoding='utf-8'))
+    #     return obj.hexdigest()

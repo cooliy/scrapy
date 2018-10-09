@@ -12,7 +12,7 @@ class XiaohuarSpider(scrapy.Spider):
     name = 'xiaohuar'
     allowed_domains = ['xiaohuar.com']
     start_urls = ['http://www.xiaohuar.com/list-1-0.html']
-    visited_urls = set()
+    # visited_urls = set()
 
     def md5(self, url):
         import hashlib
@@ -37,13 +37,13 @@ class XiaohuarSpider(scrapy.Spider):
             '//div[@class="page_num"]//a/@href').extract()
         for url in hxs2:
             # print(url)
-            md5_url = self.md5(url)
-            if md5_url in self.visited_urls:
-                pass # print('已经存在', url)
-            else:
-                # print(url)
-                self.visited_urls.add(md5_url)
-                url = "%s" % url
+            # md5_url = self.md5(url)
+            # if md5_url in self.visited_urls:
+            #     pass # print('已经存在', url)
+            # else:
+            #     # print(url)
+            #     self.visited_urls.add(md5_url)
+            #     url = "%s" % url
                 # print(url)
                 # 将要新访问的url添加到调度器
-                yield Request(url=url, callback=self.parse)
+            yield Request(url=url, callback=self.parse)
