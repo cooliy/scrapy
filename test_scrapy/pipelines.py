@@ -22,20 +22,15 @@ class TestScrapyPipeline(object):
 
 
 class MyImagesPipeline(ImagesPipeline):
-    # def file_path(self, request, response=None, info=None):
-    #     url = request.img_url
-    #     img_name = request.image_name
-    #     name_end = url.split('.')[-1]
-    #     return 'full/%s.%s' % (img_name, name_end)
 
     def get_media_requests(self, item, info):
         image_url = item['img_url']
         # image_name = item['img_name']
         if image_url.split("/")[0] not in ("https:", "http:"):
             image_url = "http://www.xiaohuar.com" + image_url
-            yield scrapy.Request(image_url)
+            yield scrapy.Request(image_url, meta={'img_name': item['img_name']})
         else:
-            yield scrapy.Request(image_url)
+            yield scrapy.Request(image_url, meta={'img_name': item['img_name']})
 
     def item_completed(self, results, item, info):
         image_paths = [x['path'] for ok, x in results if ok]
@@ -44,3 +39,8 @@ class MyImagesPipeline(ImagesPipeline):
         item['image_paths'] = image_paths
         return item
 
+    def file_path(self, request, response=None, info=None):
+        img_name = request.meta['img_name']
+        img_name_end = request.url.split('.')[-1]
+        file_name = img_name+'.'+img_name_end
+        return 'full/%s' % file_name

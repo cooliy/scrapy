@@ -66,7 +66,7 @@ DEFAULT_REQUEST_HEADERS = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'test_scrapy.pipelines.TestScrapyPipeline': 300,
+   'test_scrapy.pipelines.TestScrapyPipeline': 300,
    'test_scrapy.pipelines.MyImagesPipeline': 1
 }
 IMAGES_STORE = 'E:\\scrapy\\Xiaohuar_imgs'

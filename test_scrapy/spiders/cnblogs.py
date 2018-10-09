@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import scrapy
+
+
 
 class CnblogsSpider(scrapy.Spider):
     name = 'cnblogs'
@@ -8,5 +11,6 @@ class CnblogsSpider(scrapy.Spider):
 
     def parse(self, response):
         print(response, type(response))
+
 
 
