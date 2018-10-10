@@ -5,11 +5,7 @@
 # Don't forget to add your pipeline to the ITEM_PIPELINES setting
 # See: https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 import scrapy
-<<<<<<< HEAD
-# from scrapy import Request
-=======
 import pymongo
->>>>>>> da14fbcf45a369ac4b91f521c39f9ef71d85f55e
 from scrapy.pipelines.images import ImagesPipeline
 from scrapy.exceptions import DropItem
 
