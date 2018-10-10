@@ -74,4 +74,8 @@ class MongoPipeline(object):
         self.db = self.client[self.mongo_db]
 
     def process_item(self, item, spider):
-        name = item.__class__
+        name = item.__class__.__name__
+        self.db[name].insert(dict(item))
+        return item
+    def close_spider(self, spider):
+        self.client.close()

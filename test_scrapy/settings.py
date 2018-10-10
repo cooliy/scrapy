@@ -67,9 +67,13 @@ DEFAULT_REQUEST_HEADERS = {
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
    # 'test_scrapy.pipelines.TestScrapyPipeline': 300
-   'test_scrapy.pipelines.MyImagesPipeline': 1
+   # 'test_scrapy.pipelines.MyImagesPipeline': 1
+    'test_scrapy.pipelines.TextPipeline': 300,
+    'test_scrapy.pipelines.MongoPipeline': 400
 }
 
+MONGO_URI='localhost'
+MONGO_DB='quote'
 IMAGES_STORE = 'E:\\scrapy\\Xiaohuar_imgs'
 # 避免下载90天内的图片
 IMAGES_EXPIRES = 90

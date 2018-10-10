@@ -16,6 +16,6 @@ class QuoteSpider(scrapy.Spider):
             item['tags'] = quote.css('.tags .tag::text').extract()
             yield item
         next = response.css('.pager .next a::attr("href")').extract_first()
-        print(next)
+        # print(next)
         url = response.urljoin(next)
         yield scrapy.Request(url=url, callback=self.parse)

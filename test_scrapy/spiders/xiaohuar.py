@@ -34,10 +34,5 @@ class XiaohuarSpider(scrapy.Spider):
         hxs2 = Selector(response=response).xpath(
             '//div[@class="page_num"]//a/@href').extract()
         for url in hxs2:
-<<<<<<< HEAD
             # 将要访问的新url添加到调度器
-=======
-            # print(url)
-            # 将要新访问的url添加到调度器
->>>>>>> da14fbcf45a369ac4b91f521c39f9ef71d85f55e
             yield Request(url=url, callback=self.parse)
