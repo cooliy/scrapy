@@ -29,12 +29,15 @@ class XiaohuarSpider(scrapy.Spider):
             item['img_url'] = obj.xpath('.//img/@src').extract_first().strip()
             item['img_name'] = obj.xpath(
                 './/span[@class="price"]/text()').extract_first()
-            # print(img_name, '\n', img_urls.strip(), '\n\n')
-            # item = XiaohuarItem(imgs=img_name, img_url=img_urls.strip())
             yield item  # 将对像传到pipeline
         # 获取页面中的所有链接地址
         hxs2 = Selector(response=response).xpath(
             '//div[@class="page_num"]//a/@href').extract()
         for url in hxs2:
+<<<<<<< HEAD
             # 将要访问的新url添加到调度器
+=======
+            # print(url)
+            # 将要新访问的url添加到调度器
+>>>>>>> da14fbcf45a369ac4b91f521c39f9ef71d85f55e
             yield Request(url=url, callback=self.parse)

@@ -20,6 +20,10 @@ class XiaohuarItem(scrapy.Item):
     img_url = scrapy.Field()
     image_paths = scrapy.Field()
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> da14fbcf45a369ac4b91f521c39f9ef71d85f55e
 class QuoteItem(scrapy.Item):
     text = scrapy.Field()
     author = scrapy.Field()
